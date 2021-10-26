@@ -1,6 +1,7 @@
 import './../beers.css';
 import React from 'react';
 import { listAllBeers } from './../services/beersapi';
+import { Link } from 'react-router-dom';
 class BeersView extends React.Component {
   constructor(props) {
     super(props);
@@ -29,7 +30,10 @@ class BeersView extends React.Component {
               <li className="individual-beer" key={beer.id}>
                 <img className="list-image" src={beer.image} alt="beer" />
                 <div className="beer-info">
-                  <h1>{beer.name}</h1>
+                  <Link to={`/beers/${beer.id}`}>
+                    <h1>{beer.name}</h1>
+                  </Link>
+
                   <h2>
                     <em>{beer.tagline}</em>
                   </h2>

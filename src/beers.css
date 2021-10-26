@@ -1,5 +1,4 @@
 body {
-  background-color: rgb(164, 193, 202);
   width: 100vw;
 }
 .container {
@@ -14,12 +13,14 @@ body {
 .beer-info {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 1.5em;
 }
 
 .individual-beer {
   display: flex;
   align-items: center;
-  padding-top: 3em;
-  gap: 1em;
+  padding: 1em;
+  gap: 2em;
+  margin-top: 3em;
+  border-bottom: 1px solid grey;
 }

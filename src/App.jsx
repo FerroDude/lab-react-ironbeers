@@ -5,6 +5,7 @@ import RandomBeerView from './views/RandomBeer.jsx';
 import HomeView from './views/Home.jsx';
 import NewBeerView from './views/NewBeer.jsx';
 import Navbar from './components/Navbar.jsx';
+import DetailView from './views/Detail.jsx';
 import './App.css';
 
 function App() {
@@ -13,9 +14,6 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route path="/" component={HomeView} exact />
-        </Switch>
-
-        <Switch>
           <Route
             path="/beers"
             render={(props) => (
@@ -36,12 +34,12 @@ function App() {
             )}
             exact
           />
+          <Route path="/new-beer" exact />
           <Route
-            path="/new-beer"
+            path="/beers/:beerId"
             render={(props) => (
               <>
-                {' '}
-                <Navbar /> <NewBeerView />{' '}
+                <Navbar /> <DetailView {...props} />{' '}
               </>
             )}
             exact
