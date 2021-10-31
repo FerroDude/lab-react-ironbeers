@@ -30,7 +30,26 @@ export const loadBeer = (id) => {
         first_brewed: data.first_brewed,
         description: data.description,
         contributed_by: data.contributed_by,
+        attenuation_level: data.attenuation_level,
       };
       return beer;
+    });
+};
+
+export const loadRandomBeer = () => {
+  return axios
+    .get('https://ih-beers-api2.herokuapp.com/beers/random')
+    .then((response) => {
+      const data = response.data;
+      const randomBeer = {
+        image: data.image_url,
+        name: data.name,
+        tagline: data.tagline,
+        first_brewed: data.first_brewed,
+        description: data.description,
+        contributed_by: data.contributed_by,
+        attenuation_level: data.attenuation_level,
+      };
+      return randomBeer;
     });
 };

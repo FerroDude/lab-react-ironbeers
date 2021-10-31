@@ -28,12 +28,20 @@ class DetailView extends Component {
   render() {
     const { beer } = this.state;
     return (
-      (this.state.beer && (
+      (beer && (
         <div className="container">
           <img className="detail-image" src={beer.image} alt="Beer" />
-          <article className="article">
+          <div className="detail-name">
             <h1>{beer.name}</h1>
-            <h4>{beer.description}</h4>
+            <h1 className="detail-grey">{beer.attenuation_level}</h1>
+          </div>
+          <div className="detail-tagline">
+             <h3 className="detail-grey">{beer.tagline}</h3>
+             <h3>{beer.first_brewed}</h3>
+          </div>
+          <article className="detail-article">
+            <p>{beer.description}</p>
+            <p><span className="detail-grey">{beer.contributed_by}</span></p>
           </article>
         </div>
       )) || <h1 className="loading">Loading...</h1>

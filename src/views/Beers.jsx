@@ -2,6 +2,8 @@ import './../beers.css';
 import React from 'react';
 import { listAllBeers } from './../services/beersapi';
 import { Link } from 'react-router-dom';
+
+
 class BeersView extends React.Component {
   constructor(props) {
     super(props);
