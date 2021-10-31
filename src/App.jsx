@@ -36,7 +36,15 @@ function App() {
             )}
             exact
           />
-          <Route path="/new-beer" exact />
+          <Route
+            path="/new-beer"
+            render={(props) => (
+              <>
+                <Navbar /> <NewBeerView />
+              </>
+            )}
+            exact
+          />
           <Route
             path="/beers/:beerId"
             render={(props) => (
