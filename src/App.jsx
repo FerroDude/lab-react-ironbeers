@@ -8,6 +8,8 @@ import Navbar from './components/Navbar.jsx';
 import DetailView from './views/Detail.jsx';
 import './App.css';
 
+//test new machine commit
+
 function App() {
   return (
     <div className="App">
