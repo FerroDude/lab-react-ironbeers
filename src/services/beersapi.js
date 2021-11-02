@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import { Redirect } from 'react-router-dom';
+
 export const listAllBeers = () => {
   return axios
     .get('https://ih-beers-api2.herokuapp.com/beers/')
@@ -51,5 +53,18 @@ export const loadRandomBeer = () => {
         attenuation_level: data.attenuation_level,
       };
       return randomBeer;
+    });
+};
+
+export const addNewBeer = (beer) => {
+  return axios
+    .post('https://ih-beers-api2.herokuapp.com/beers/new', beer)
+    .then((response) => {
+      console.log(response);
+      alert(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+      alert(error);
     });
 };

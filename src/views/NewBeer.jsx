@@ -1,4 +1,6 @@
 import React from 'react';
+import { addNewBeer } from './../services/beersapi';
+import './../new-beer.css';
 
 class NewBeerView extends React.Component {
   constructor(props) {
@@ -26,13 +28,38 @@ class NewBeerView extends React.Component {
 
   handleFormSubmission = (event) => {
     event.preventDefault();
-    const { name, tagline } = this.state;
-    console.log(name);
+    const {
+      name,
+      tagline,
+      description,
+      first_brewed,
+      attenuation_level,
+      contributed_by,
+    } = this.state;
+    const newBeer = {
+      name,
+      tagline,
+      description,
+      first_brewed,
+      attenuation_level,
+      contributed_by,
+    };
+    addNewBeer(newBeer);
+
+    this.setState({
+      name: '',
+      tagline: '',
+      description: '',
+      first_brewed: '',
+      brewers_tips: '',
+      attenuation_level: '',
+      contributed_by: '',
+    });
   };
   render() {
     return (
       <div>
-        <form>
+        <form className="new-beer-form">
           <label htmlFor="input-name">Name</label>
           <input
             id="input-name"
@@ -52,7 +79,8 @@ class NewBeerView extends React.Component {
             type="text"
           />
           <label htmlFor="input-description">Description</label>
-          <input
+          <textarea
+            className="input-description"
             id="input-description"
             onChange={this.handleChange}
             value={this.state.description}
@@ -96,7 +124,12 @@ class NewBeerView extends React.Component {
             required
             type="text"
           />
-          <button onClick={this.handleFormSubmission} type="button">
+
+          <button
+            className="btn"
+            onClick={this.handleFormSubmission}
+            type="button"
+          >
             Add New
           </button>
         </form>
